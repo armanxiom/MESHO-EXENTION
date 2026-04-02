@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Meesho Autofill Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- License Login Screen -->
+  <div id="loginScreen" class="container">
+    <header>
+      <h1>MEESHO AUTOFILL TOOL</h1>
+    </header>
+    <div class="section">
+      <p class="subtitle">Enter License Key to Start</p>
+      <input type="text" id="licenseKey" placeholder="XXXX-XXXX-XXXX-XXXX" class="input-field">
+      <button id="loginBtn" class="btn btn-primary">LOGIN</button>
+    </div>
+  </div>
+
+  <!-- Main App Screen -->
+  <div id="mainScreen" class="container hidden">
+    <header>
+      <div class="logo-container">
+        <span class="pro-badge">PRO</span>
+        <h1>MEESHO AUTOFILL TOOL</h1>
+      </div>
+    </header>
+
+    <div class="section">
+      <div class="profile-header">
+        <span class="label">Profile Manager</span>
+        <div class="profile-actions">
+          <button id="newProfileBtn" class="btn-icon" title="New Profile">+</button>
+          <button id="editProfileBtn" class="btn-icon" title="Edit Profile">✎</button>
+          <button id="deleteProfileBtn" class="btn-icon danger" title="Delete Profile">🗑</button>
+        </div>
+      </div>
+      <select id="profileSelector" class="input-field">
+        <option value="">Select Profile</option>
+      </select>
+    </div>
+
+    <div class="actions grid-2">
+      <button id="captureBtn" class="btn btn-secondary">CAPTURE</button>
+      <button id="autofillBtn" class="btn btn-primary">AUTOFILL</button>
+    </div>
+
+    <div class="section backup-section">
+      <p class="label">Profile Backup</p>
+      <div class="grid-2">
+        <button id="exportBtn" class="btn btn-outline">EXPORT</button>
+        <button id="importBtn" class="btn btn-outline">IMPORT</button>
+        <input type="file" id="importFile" class="hidden" accept=".json">
+      </div>
+    </div>
+
+    <div id="statusText" class="status-text">Ready</div>
+
+    <div class="footer">
+      <p>Capture fields using <strong>Enter</strong> key</p>
+      <p class="version">v1.0.0 Professional</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Meesho Autofill Tool",
+  "version": "1.0.0",
+  "description": "Automatically capture and autofill product listing fields on Meesho supplier panel.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://supplier.meesho.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://supplier.meesho.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

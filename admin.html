@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Meesho Automation Extension</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-['Inter',sans-serif] min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-zinc-900 border-r border-zinc-800 flex flex-col">
+    <div class="p-6 border-b border-zinc-800">
+      <div class="flex items-center gap-2">
+        <div class="bg-yellow-400 text-black font-bold px-2 py-1 rounded text-xs">ADMIN</div>
+        <span class="text-lg font-bold tracking-tight">Meesho<span class="text-yellow-400">Auto</span></span>
+      </div>
+    </div>
+    <nav class="flex-grow p-4 space-y-2">
+      <a href="#" class="flex items-center gap-3 px-4 py-3 bg-yellow-400 text-black rounded-xl font-bold">
+        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+        Submissions
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-800 rounded-xl transition-colors">
+        <i data-lucide="users" class="w-5 h-5"></i>
+        Customers
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-800 rounded-xl transition-colors">
+        <i data-lucide="key" class="w-5 h-5"></i>
+        License Keys
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-800 rounded-xl transition-colors">
+        <i data-lucide="settings" class="w-5 h-5"></i>
+        Settings
+      </a>
+    </nav>
+    <div class="p-4 border-t border-zinc-800">
+      <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:text-white transition-colors">
+        <i data-lucide="log-out" class="w-5 h-5"></i>
+        Logout
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-grow p-8 overflow-y-auto">
+    <header class="flex justify-between items-center mb-10">
+      <div>
+        <h1 class="text-3xl font-bold">Payment Submissions</h1>
+        <p class="text-zinc-500">Review and verify customer payments.</p>
+      </div>
+      <div class="flex gap-4">
+        <button id="refresh-btn" class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-xl hover:bg-zinc-800 transition-colors flex items-center gap-2">
+          <i data-lucide="refresh-cw" class="w-4 h-4"></i> Refresh
+        </button>
+        <button id="clear-btn" class="bg-red-500/10 text-red-500 border border-red-500/20 px-4 py-2 rounded-xl hover:bg-red-500 hover:text-white transition-all">
+          Clear All
+        </button>
+      </div>
+    </header>
+
+    <!-- Submissions Table -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-zinc-950 border-b border-zinc-800">
+            <th class="px-6 py-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Customer</th>
+            <th class="px-6 py-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Transaction ID</th>
+            <th class="px-6 py-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Screenshot</th>
+            <th class="px-6 py-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Status</th>
+            <th class="px-6 py-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-body">
+          <!-- Submissions will be injected here -->
+        </tbody>
+      </table>
+      
+      <!-- Empty State -->
+      <div id="empty-state" class="hidden py-20 text-center">
+        <div class="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="inbox" class="w-8 h-8 text-zinc-600"></i>
+        </div>
+        <p class="text-zinc-500">No payment submissions found.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-8 right-8 bg-zinc-900 border border-zinc-800 px-6 py-4 rounded-2xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+    <div id="toast-icon" class="w-8 h-8 rounded-full flex items-center justify-center"></div>
+    <p id="toast-message" class="font-medium"></p>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

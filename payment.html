@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Your Payment | Meesho Automation Extension</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="payment.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-['Inter',sans-serif] selection:bg-yellow-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="w-full bg-zinc-950 border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center gap-2">
+          <a href="index.html" class="flex items-center gap-2">
+            <div class="bg-yellow-400 text-black font-bold px-2 py-1 rounded text-sm">PRO</div>
+            <span class="text-xl font-bold tracking-tight">Meesho<span class="text-yellow-400">Auto</span></span>
+          </a>
+        </div>
+        <a href="index.html" class="text-sm font-medium text-zinc-400 hover:text-yellow-400 transition-colors flex items-center gap-2">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl w-full space-y-8">
+      
+      <!-- QR Payment Section -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center animate-fade-in">
+        <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Scan QR Code to Pay ₹1</h2>
+        
+        <div class="bg-white p-6 rounded-2xl mb-8 inline-block shadow-2xl">
+          <img src="https://i.postimg.cc/7Y9xQgJ8/Whats-App-Image-2026-04-02-at-9-43-05-PM.jpg" alt="UPI QR Code" width="250" class="rounded-lg mx-auto">
+        </div>
+
+        <div class="space-y-4 text-left max-w-md mx-auto">
+          <div class="flex gap-4 items-start">
+            <div class="w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">1</div>
+            <p class="text-zinc-400 text-sm">Open <span class="text-white font-bold">PhonePe, Google Pay or Paytm</span></p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">2</div>
+            <p class="text-zinc-400 text-sm">Scan the QR code above</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">3</div>
+            <p class="text-zinc-400 text-sm">Pay <span class="text-white font-bold">₹1</span> for trial access</p>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="w-6 h-6 bg-yellow-400 text-black rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-1">4</div>
+            <p class="text-zinc-400 text-sm">Fill the payment verification form below</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 justify-center mt-8 opacity-50">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI" class="h-6 grayscale">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="GPay" class="h-6 grayscale">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Paytm_Logo_%28standalone%29.svg" alt="Paytm" class="h-4 grayscale mt-1">
+        </div>
+      </div>
+
+      <!-- Verification Form -->
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 animate-fade-in" style="animation-delay: 0.2s">
+        <div id="payment-form-container">
+          <h3 class="text-2xl font-bold mb-6">Verify Your Payment</h3>
+          <form id="payment-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-zinc-400 mb-2">Full Name</label>
+              <input type="text" id="name" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors" placeholder="Enter your name">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-zinc-400 mb-2">Email Address</label>
+              <input type="email" id="email" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors" placeholder="Where should we send the link?">
+            </div>
+            <div>
+              <label for="txn-id" class="block text-sm font-medium text-zinc-400 mb-2">UPI Transaction ID</label>
+              <input type="text" id="txn-id" required class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-3 focus:outline-none focus:border-yellow-400 transition-colors" placeholder="12-digit transaction ID">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-zinc-400 mb-2">Payment Screenshot</label>
+              <label for="screenshot" class="flex flex-col items-center justify-center w-full h-32 bg-zinc-950 border-2 border-dashed border-zinc-800 rounded-xl cursor-pointer hover:border-yellow-400/50 transition-colors group">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <i data-lucide="upload-cloud" class="w-8 h-8 text-zinc-600 group-hover:text-yellow-400 transition-colors mb-2"></i>
+                  <p class="text-xs text-zinc-500" id="file-name-display">Click to upload screenshot</p>
+                </div>
+                <input id="screenshot" type="file" class="hidden" accept="image/*" required />
+              </label>
+            </div>
+            <button type="submit" id="submit-btn" class="w-full bg-yellow-400 text-black font-bold py-4 rounded-xl hover:bg-yellow-300 transition-all flex items-center justify-center gap-2 group">
+              VERIFY PAYMENT
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="hidden text-center py-12">
+          <div class="w-20 h-20 bg-yellow-400/10 text-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="check-circle" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Payment Submitted!</h3>
+          <p class="text-zinc-400 leading-relaxed">
+            Thank you for your purchase. After verification, you will receive the download link by email. This usually takes 1-2 hours.
+          </p>
+          <a href="index.html" class="inline-block mt-8 text-yellow-400 font-bold hover:underline">Back to Home</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="py-8 border-t border-zinc-800 text-center text-zinc-600 text-xs">
+    <p>&copy; 2026 Meesho Automation Extension. Secure Payment Gateway.</p>
+  </footer>
+
+  <script src="payment.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
